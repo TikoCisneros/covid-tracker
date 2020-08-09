@@ -4,5 +4,6 @@ import App from './App';
 
 it('renders welcome message', () => {
   const wrapper = shallow(<App />);
-  expect(wrapper.find('header').length).toEqual(1);
+  const welcome = <h2>Welcome to React</h2>;
+  expect(wrapper.contains(welcome)).toEqual(true);
 });
