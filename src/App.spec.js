@@ -2,8 +2,10 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import App from './App';
 
-it('renders welcome message', () => {
-  const wrapper = shallow(<App />);
-  const welcome = <h2>Welcome to React</h2>;
-  expect(wrapper.contains(welcome)).toEqual(true);
+describe('App component', () => {
+  it('renders correctly', () => {
+    const wrapper = shallow(<App />);
+    expect(wrapper.find('Layout').length).toBe(1);
+  });
 });
+
