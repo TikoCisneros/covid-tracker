@@ -16,7 +16,7 @@ const SelectorContainer = styled.div`
 `;
 
 const Selector = styled(Select)`
-  min-width: 280px;
+  width: 260px;
 `;
 
 const Description = styled(Typography)`

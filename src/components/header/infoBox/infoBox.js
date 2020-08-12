@@ -4,16 +4,18 @@ import {
   Card,
   CardContent,
   CardActions,
-} from '@material-ui/core';
-import { normalizeNumber } from '../../../common/number';
+  TotalCases,
+  Category,
+} from './infoBox.styles';
+import { normalizeNumber } from '../../../common/normalizers';
 
-const InfoBox = ({ title, value, onPress }) => (
-  <Card>
-    <CardContent>
-      <strong>{normalizeNumber(value)}</strong>
+const InfoBox = ({ type, title, value, onPress }) => (
+  <Card elevation={3}>
+    <CardContent type={type}>
+      <TotalCases type={type}>{normalizeNumber(value)}</TotalCases>
     </CardContent>
-    <CardActions>
-      <strong>{title}</strong>
+    <CardActions type={type}>
+      <Category type={type}>{title}</Category>
     </CardActions>
   </Card>
 );

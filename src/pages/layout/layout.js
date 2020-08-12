@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
-import Header from '../../components/header/header';
+import Header from '../../components/header';
 import { DEFAULT_COUNTRY, BASE_URL } from '../../common/constants';
 
 const Layout = () => {

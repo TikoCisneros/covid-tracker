@@ -5,4 +5,14 @@ const DEFAULT_COUNTRY = {
 
 const BASE_URL = 'https://disease.sh/v3/covid-19';
 
-export { DEFAULT_COUNTRY, BASE_URL };
+const COVID_CASES_TYPES = {
+  CONFIRMED: 'confirmed',
+  RECOVERED: 'recovered',
+  DEATHS: 'deaths',
+};
+
+export {
+  DEFAULT_COUNTRY,
+  COVID_CASES_TYPES,
+  BASE_URL,
+};
