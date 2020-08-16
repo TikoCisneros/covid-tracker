@@ -3,10 +3,15 @@ import axios from 'axios';
 
 import Header from '../../components/header';
 import { DEFAULT_COUNTRY, BASE_URL } from '../../common/constants';
+import { transformCountryData, sortByHighCases } from '../../common/countries';
+
+import { Container, Content } from './layout.styles';
+import Graphs from '../../components/graphs';
+import Countries from '../../components/countries';
+
 
 const Layout = () => {
   const [countries, setCountries] = useState([]);
-  // const [countriesCases, setCountriesCases] = useState([]);
   const [country, setCountry] = useState(DEFAULT_COUNTRY.value);
   const [cases, setCases] = useState({ confirmed: 0, recovered: 0, deaths: 0 });
 
@@ -14,9 +19,7 @@ const Layout = () => {
     const fetchCountries = async () => {
       try {
         const { data } = await axios.get(`${BASE_URL}/countries`);
-        const transformedCounties = data.map(({ country, countryInfo: { iso2 }}) => ({ name: country, value: iso2 }));
-        setCountries(transformedCounties);
-        // setCountriesCases(data);
+        setCountries(data);
       } catch (_error) { }
     }
 
@@ -64,18 +67,18 @@ const Layout = () => {
   const handleCountrySelection = (event) => setCountry(event.target.value);
 
   return (
-    <div>
+    <Container>
       <Header
         cases={cases}
-        countries={countries}
+        countries={transformCountryData(countries)}
         selectedCountry={country}
         onSelectCountry={handleCountrySelection}
       />
-  
-      {/** TABLE */}
-  
-      {/** MAP */}
-    </div>
+      <Content>
+        <Graphs />
+        <Countries data={sortByHighCases(countries)} />
+      </Content>
+    </Container>
   );
 };
 

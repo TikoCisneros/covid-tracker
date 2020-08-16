@@ -53,6 +53,7 @@
       "!src/**/*.d.ts",
       "!src/**/*.stories.js",
       "!src/**/*.spec.js",
+      "!src/**/*.styles.js",
       "!**/index.js",
       "!src/serviceWorker.js",
       "!src/res/*"

@@ -11,6 +11,7 @@ import { COVID_CASES_TYPES } from '../../../common/constants';
 const Card = styled(MUICard)`
   width: 160px;
   margin: 5px 10px;
+  cursor: pointer;
 `;
 
 const getCardContentBackgroundColor = (type) => {

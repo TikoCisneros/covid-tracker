@@ -38,7 +38,7 @@ const Header = ({ cases, countries, selectedCountry,  onSelectCountry }) => (
     />
     <InfoContainer>
       {Object.values(COVID_CASES_TYPES)
-        .map(type => <InfoBox type={type} title={upperCaseFirstLetter(type)} value={cases[type]} />)}
+        .map((type, index) => <InfoBox key={index + 1} type={type} title={upperCaseFirstLetter(type)} value={cases[type]} />)}
     </InfoContainer>
   </HeaderContainer>
 );
