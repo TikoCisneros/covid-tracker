@@ -3,7 +3,6 @@ import { Circle, Popup } from 'react-leaflet';
 
 import {
   InfoContainer,
-  InfoFlag,
   InfoName,
   InfoLabel,
 } from './map.styles';
@@ -48,9 +47,6 @@ const drawMapCircles =
     >
       <Popup>
         <InfoContainer>
-          <InfoFlag
-            style={{ backgroundImage: `url(${country.countryInfo.flag})` }}
-          />
           <InfoName>{country.country}</InfoName>
           <InfoLabel>
             Cases: {normalizeNumber(country.cases)}
