@@ -65,7 +65,7 @@ const Layout = () => {
           mapCenter={mapCenter}
           mapZoom={mapZoom}
           mapCountries={countries}
-          mapCasesType={COVID_CASES_TYPES.CONFIRMED}
+          mapCasesType={COVID_CASES_TYPES.RECOVERED}
         />
         <Countries data={sortByHighCases(countries)} />
       </Content>

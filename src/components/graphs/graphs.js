@@ -8,7 +8,7 @@ import {
 
 import { Map, TileLayer } from 'react-leaflet';
 
-import { drawMapCircles } from "./util";
+import MapCircles from "./mapCircles";
 
 const Graphs = ({ mapCasesType, mapCenter, mapZoom, mapCountries }) => {
   return (
@@ -26,7 +26,7 @@ const Graphs = ({ mapCasesType, mapCenter, mapZoom, mapCountries }) => {
             attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           />
-          {drawMapCircles(mapCountries, mapCasesType)}
+          <MapCircles data={mapCountries} casesType={mapCasesType} />
         </Map>
       </MUICardContent>
     </MUICard>

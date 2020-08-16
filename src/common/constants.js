@@ -5,7 +5,7 @@ const DEFAULT_COUNTRY = {
 
 const DEFAULT_MAP_VALUES = { 
   zoom: 2, 
-  center: [ 34.80746, -40.4796 ], 
+  center: [ 20, 30 ], 
 };
 
 const BASE_URL = 'https://disease.sh/v3/covid-19';
