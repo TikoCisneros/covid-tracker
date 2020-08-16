@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import 'leaflet/dist/leaflet.css'
 import Layout from './pages/layout';
 import * as serviceWorker from './serviceWorker';
 
