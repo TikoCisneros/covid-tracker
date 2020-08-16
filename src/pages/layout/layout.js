@@ -26,43 +26,21 @@ const Layout = () => {
     fetchCountries();
   }
 
-  const loadGlobalCases = () => {
-    const fetchGlobalCases = async () => {
-      try {
-        const { data: { cases, recovered, deaths} } = await axios.get(`${BASE_URL}/all`);
-        setCases({ confirmed: cases, recovered, deaths });
-      } catch (_error) { }
-    }
-
-    fetchGlobalCases();
-  }
-
   const loadCountryCases = () => {
     const fetchCountryCases = async () => {
       try {
-        const { data: { cases, recovered, deaths} } = await axios.get(`${BASE_URL}/countries/${country}`);
+        const url = (country === DEFAULT_COUNTRY.value) ? `${BASE_URL}/all` : `${BASE_URL}/countries/${country}`;
+        const { data: { cases, recovered, deaths } } = await axios.get(url);
         setCases({ confirmed: cases, recovered, deaths });
       } catch (_error) { }
     }
 
     fetchCountryCases();
   }
-
-  const handleFetchCountryData = () => {
-    if (country === DEFAULT_COUNTRY.value) {
-      loadGlobalCases();
-      return;
-    }
-
-    loadCountryCases();
-  }
   
-  useEffect(() => {
-    loadCountries();
-    loadGlobalCases();
-  }, []);
+  useEffect(loadCountries, []);
 
-  useEffect(handleFetchCountryData, [country]);
+  useEffect(loadCountryCases, [country]);
 
   const handleCountrySelection = (event) => setCountry(event.target.value);
 
